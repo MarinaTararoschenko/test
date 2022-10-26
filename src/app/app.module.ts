@@ -7,11 +7,17 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { HeaderComponent } from './shared/header/header.component';
 
+import { FeaturesComponent } from './features/features.component';
+// sections
+import { DraggingBlockComponent } from './features/dragging-block/dragging-block.component';
+
 @NgModule({
     declarations: [
         AppComponent,
         HomeComponent,
-        HeaderComponent
+        HeaderComponent,
+        FeaturesComponent,
+        DraggingBlockComponent
     ],
     imports: [
         BrowserModule,

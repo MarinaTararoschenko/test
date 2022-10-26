@@ -1,0 +1,23 @@
+<div #dragContainer class="dragContainer" [class.transition]="isDrag">
+  <div class="dragContainer__img">
+    <picture>
+      <source srcset="/assets/images/dragging-block/api-code-desktop@1x.png,
+                      /assets/images/dragging-block/api-code-desktop@2x.png 2x" media="(min-width: 670px)">
+      <img  src="/assets/images/dragging-block/api-code-mobile@1x.png"
+            srcset="/assets/images/dragging-block/api-code-mobile@2x.png 2x"
+            alt="code">
+    </picture>
+  </div>
+  <div class="dragContainer__img preview">
+    <picture>
+      <source srcset="/assets/images/dragging-block/api-preview-desktop@1x.png,
+                      /assets/images/dragging-block/api-preview-desktop@2x.png 2x" media="(min-width: 670px)">
+      <img  src="/assets/images/dragging-block/api-preview-mobile@1x.png"
+            srcset="/assets/images/dragging-block/api-preview-mobile@2x.png 2x"
+            alt="preview">
+    </picture>
+  </div>
+  <div class="dragme">
+    <span class="dragme__circle"></span>
+  </div>
+</div>
