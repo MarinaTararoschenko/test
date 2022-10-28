@@ -5,7 +5,17 @@
 }
 
 html {
-  font-size: 10px !important;
+  &.scale-1 {
+    font-size: 10px !important;
+  }
+
+  &.scale-2 {
+    font-size: 12px !important;
+  }
+
+  &.scale-3 {
+    font-size: 14px !important;
+  }
 }
 
 html,

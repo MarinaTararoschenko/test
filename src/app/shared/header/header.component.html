@@ -14,6 +14,21 @@
         [routerLinkActiveOptions]="{exact: true}">
         <mat-icon class="material-icons-outlined">style</mat-icon>
       </button>
+
+      <mat-divider [vertical]="true"></mat-divider>
+
+      <mat-icon>text_fields</mat-icon>
+
+      <button mat-icon-button (click)="toScale(1)" [disabled]="scale >= 3">
+        <mat-icon>add</mat-icon>
+      </button>
+
+      <button mat-icon-button (click)="toScale(2)" [disabled]="scale === 1">
+        <mat-icon>remove</mat-icon>
+      </button>
+
+      <mat-divider [vertical]="true"></mat-divider>
+
       <button mat-icon-button (click)="contrast()">
         <mat-icon>opacity</mat-icon>
       </button>

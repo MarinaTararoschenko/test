@@ -6,6 +6,7 @@ import { MatMenuModule } from '@angular/material/menu';
 import { MatRippleModule } from '@angular/material/core';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatDividerModule } from '@angular/material/divider';
 
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
@@ -17,7 +18,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
         MatRippleModule,
         FormsModule,
         MatInputModule,
-        MatFormFieldModule
+        MatFormFieldModule,
+        MatDividerModule
     ],
     exports: [
         ReactiveFormsModule,
@@ -27,7 +29,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
         MatRippleModule,
         FormsModule,
         MatInputModule,
-        MatFormFieldModule
+        MatFormFieldModule,
+        MatDividerModule
     ]
 })
 export class CustomMaterialModule {}
