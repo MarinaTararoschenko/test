@@ -12,6 +12,7 @@ import { HeaderComponent } from './shared/header/header.component';
 import { FeaturesComponent } from './features/features.component';
 // sections
 import { DraggingBlockComponent } from './features/dragging-block/dragging-block.component';
+import { CalendarComponent } from './features/calendar/calendar.component';
 
 import { LibraryComponent } from './library/library.component';
 
@@ -22,6 +23,7 @@ import { LibraryComponent } from './library/library.component';
         HeaderComponent,
         FeaturesComponent,
         DraggingBlockComponent,
+        CalendarComponent,
         LibraryComponent
     ],
     imports: [

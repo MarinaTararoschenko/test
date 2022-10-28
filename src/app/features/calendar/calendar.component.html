@@ -1,0 +1,36 @@
+<div class="wrapper">
+  <button mat-button [matMenuTriggerFor]="menuDate" class="customCalendar__btn">
+      {{calendarOprions.currentPeriodName}}
+      <mat-icon>keyboard_arrow_down</mat-icon>
+  </button>
+
+  <!-- {{ calendarOprions.currentPeriod | json}} -->
+
+  <mat-menu #menuDate="matMenu">
+    <button mat-menu-item
+            *ngFor="let period of calendarOprions.periods"
+            (click)="changePeriod(period)">
+      {{ getCurrentPeriod(period) }}
+    </button>
+  </mat-menu>
+
+  <div class="customCalendar" #calendar>
+    <div class="customCalendar__week">
+      <div class="customCalendar__week-name" *ngFor="let weekday of calendarOprions.weekDays">
+        {{weekday}} <br>
+      </div>
+    </div>
+
+    <div class="customCalendar__weekdays" *ngFor="let week of calendarOprions.currentPeriod">
+      <div
+        class="customCalendar__day"
+        [class.prev]="isPreviosMonth(day) || isNextMonth(day)"
+        *ngFor="let day of week.days">
+        <span class="customCalendar__day_month">{{getYear(day)}}</span>
+        <span class="customCalendar__day_month">{{getMonth(day)}}</span>
+        <span>{{getDay(day)}}</span>
+      </div>
+    </div>
+
+  </div>
+</div>
