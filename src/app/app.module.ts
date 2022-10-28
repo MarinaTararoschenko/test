@@ -13,13 +13,16 @@ import { FeaturesComponent } from './features/features.component';
 // sections
 import { DraggingBlockComponent } from './features/dragging-block/dragging-block.component';
 
+import { LibraryComponent } from './library/library.component';
+
 @NgModule({
     declarations: [
         AppComponent,
         HomeComponent,
         HeaderComponent,
         FeaturesComponent,
-        DraggingBlockComponent
+        DraggingBlockComponent,
+        LibraryComponent
     ],
     imports: [
         BrowserModule,

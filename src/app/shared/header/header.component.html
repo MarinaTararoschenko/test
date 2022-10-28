@@ -7,6 +7,13 @@
       </a></li>
     </ul>
     <div class="accessibilityButtons">
+      <button
+        mat-icon-button
+        routerLink="/library"
+        [routerLinkActive]="['active']"
+        [routerLinkActiveOptions]="{exact: true}">
+        <mat-icon class="material-icons-outlined">style</mat-icon>
+      </button>
       <button mat-icon-button (click)="contrast()">
         <mat-icon>opacity</mat-icon>
       </button>

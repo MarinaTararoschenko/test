@@ -5,3 +5,16 @@
 .center {
   text-align: center;
 }
+
+.flex {
+  display: flex;
+}
+
+.flex-between-center {
+  @extend .flex;
+  justify-content: center;
+}
+
+.flex-grow-1 {
+  flex-grow: 1;
+}

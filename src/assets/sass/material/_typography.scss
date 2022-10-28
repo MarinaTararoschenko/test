@@ -1,0 +1,28 @@
+@import '~@angular/material/theming';
+
+$custom-typography-config: mat-typography-config(
+  $font-family: '"CircularStd-Book", sans-serif;',
+  $display-1: mat-typography-level(48px, 1, 400), // h1
+  $display-2: mat-typography-level(40px, 1, 400), // h2
+  $display-3: mat-typography-level(32px, 1, 400), // h3
+  $display-4: mat-typography-level(24px, 1, 400), // h4
+  $headline: mat-typography-level(28px, 1, 400),
+  $title: mat-typography-level(2.4rem, 1, 500),
+  $subheading-2: mat-typography-level(2rem, 1.4, 400),
+  $subheading-1: mat-typography-level(1.6rem, 1.5, 400),
+  $body-2: mat-typography-level(2rem, 1.2, 400),
+  $body-1: mat-typography-level(1.6rem, 1.2, 400),
+  $caption: mat-typography-level(1.2rem, 1.2, 400), // hint
+  $button: mat-typography-level(16px, 1, 500),
+  $input: mat-typography-level(1.6rem, 1.125, 400)
+);
+
+@include angular-material-typography($custom-typography-config);
+
+.mat-display-1,
+.mat-display-2,
+.mat-display-3,
+.mat-display-4 {
+  margin-top: 0;
+  margin-bottom: 24px;
+}

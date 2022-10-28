@@ -14,7 +14,7 @@ body {
 }
 
 body {
-  @extend .body1;
+  @extend .body-1;
   color: var(--colorPrimary);
   margin: 0;
   overflow-x: hidden;
