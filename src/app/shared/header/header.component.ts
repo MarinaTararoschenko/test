@@ -21,6 +21,14 @@ export class HeaderComponent implements OnInit {
             if (localStorage.getItem('contrast') !== null) {
                 this.renderer.addClass(document.body, 'contrast');
             }
+
+            // set scale from localStorage
+            if (localStorage.getItem('scale') !== null) {
+                this.renderer.addClass(document.body.parentElement, 'scale-' + localStorage.getItem('scale'));
+                this.scale = Number(localStorage.getItem('scale'));
+            } else {
+                this.renderer.addClass(document.body.parentElement, 'scale-1');
+            }
         }
     }
 
