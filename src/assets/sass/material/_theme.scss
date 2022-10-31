@@ -31,7 +31,7 @@ $theme-primary: $theme-light-primary;
 $theme-accent: $theme-light-accent;
 $theme-warn: $theme-light-warn;
 
-
+@import "./helpers";
 @include angular-material-theme($custom-light-theme);
 
 // include custom dark theme
@@ -40,41 +40,8 @@ $theme-warn: $theme-light-warn;
   $theme-accent: $theme-dark-accent;
   $theme-warn: $theme-dark-warn;
 
+  @import "./helpers";
   @include angular-material-theme($custom-dark-theme);
-}
-
-// Helper classes of colors (frome material palette)
-.color-accent-primary {
-  color: mat-color($theme-primary, default);
-}
-
-.color-accent-primary-light {
-  color: mat-color($theme-primary, lighter) !important;
-}
-
-.color-accent-primary-dark {
-  color: mat-color($theme-primary, darker) !important;
-}
-
-.color-accent-secondary,
-.color-active {
-  color: mat-color($theme-accent, default) !important;
-}
-
-.color-accent-secondary-light {
-  color: mat-color($theme-accent, lighter) !important;
-}
-
-.color-accent-secondary-dark {
-  color: mat-color($theme-accent, darker) !important;
-}
-
-.color-warn {
-  color: mat-color($theme-warn, default) !important;
-}
-
-.bg-error {
-  background-color: mat-color($theme-warn, default);
 }
 
 // Helper classes of colors (frome custom variables)
