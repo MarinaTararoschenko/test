@@ -1,12 +1,27 @@
 :root {
   --primaryFont: "CircularStd-Book", sans-serif;
 
+  --colorBase: #000;
   --colorPrimary: rgba(0,0,0,.87);
   --colorSecondary: rgba(0,0,0,.6);
   --colorDisabled: rgba(0,0,0,.54);
-  --colorError: #de1749;
-  --colorAccent: #1984f6;
-  --colorSuccessful: #6BBC0D;
+  --colorBorder: rgba(0,0,0,.12);
 
-  --bgPrimary: #282828;
+  --bgHeader: #282828;
+  --bgPrimary: #ffffff;
+  --bgSecondary: #757575;
+  --bgThird: #e0e0e0;
+}
+
+:root .contrast {
+  --colorBase: #fff;
+  --colorPrimary: rgba(255, 255, 255, .87);
+  --colorSecondary: rgba(255, 255, 255, .6);
+  --colorDisabled: rgba(255, 255, 255, .54);
+
+  --colorBorder: rgba(255, 255, 255, .12);
+  --bgHeader: #2b2b2b;
+  --bgPrimary: #121212;
+  --bgSecondary: #424242;
+  --bgThird: #616161;
 }

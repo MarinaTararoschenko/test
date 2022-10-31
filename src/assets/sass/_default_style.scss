@@ -25,6 +25,7 @@ body {
 
 body {
   @extend .body-1;
+  @extend .bg-primary;
   color: var(--colorPrimary);
   margin: 0;
   overflow-x: hidden;
@@ -38,6 +39,12 @@ body {
   -webkit-backface-visibility: hidden;
   -moz-backface-visibility: hidden;
   -ms-backface-visibility: hidden;
+
+  &.contrast * {
+    img {
+      filter: grayscale(1) !important;
+    }
+  }
 }
 
 p {

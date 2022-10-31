@@ -56,12 +56,17 @@
       top: 50%;
       left: 50%;
       transform: translateY(-50%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
       margin-left: -24px;
       border-radius: 50%;
       width: 48px;
       height: 48px;
       cursor: move;
-      background-color: var(--colorError);
+      color: rgba(0, 0, 0, .87);
+      border: 2px solid rgba(0, 0, 0, .12);
+      background-color: #fff;
     }
   }
 

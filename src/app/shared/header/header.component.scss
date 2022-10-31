@@ -2,7 +2,6 @@
   position: sticky;
   top: 0;
   padding: 8px 0;
-  background-color: var(--bgPrimary);
   box-shadow: 0 2px 2px rgba(0,0,0,.12);
   z-index: 1001;
 
@@ -27,7 +26,6 @@
         display: inline-block;
         font-size: 20px;
         line-height: 40px;
-        color: #fff;
         padding: 0 8px;
         text-decoration: none;
 
@@ -35,8 +33,8 @@
           opacity: .8;
         }
 
-        &.active {
-          color: var(--colorSuccessful) !important;
+        &:not(.color-active) {
+          color: #fff;
         }
       }
     }
@@ -52,17 +50,13 @@
   align-items: center;
   margin-left: auto;
 
-  .mat-icon {
+  .mat-icon:not(.color-active) {
     color: #fff;
   }
 
   .mat-icon-button {
     &[disabled] {
       opacity: .4;
-    }
-
-    &.active .mat-icon {
-      color: var(--colorSuccessful) !important;
     }
   }
 

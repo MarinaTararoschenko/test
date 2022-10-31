@@ -1,18 +1,21 @@
-<div class="wrapHeader">
+<div class="wrapHeader bg-header">
   <div class="container">
     <ul>
-      <li><a routerLink="/" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact: true}">Home</a></li>
-      <li><a routerLink="/features" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact: true}">
+      <li><a routerLink="/" [routerLinkActive]="['color-active']" [routerLinkActiveOptions]="{exact: true}">Home</a></li>
+      <li><a routerLink="/features" [routerLinkActive]="['color-active']" [routerLinkActiveOptions]="{exact: true}">
         Features
       </a></li>
     </ul>
     <div class="accessibilityButtons">
       <button
         mat-icon-button
-        routerLink="/library"
-        [routerLinkActive]="['active']"
-        [routerLinkActiveOptions]="{exact: true}">
-        <mat-icon class="material-icons-outlined">style</mat-icon>
+        routerLink="/library">
+        <mat-icon
+          [routerLinkActive]="['color-active']"
+          [routerLinkActiveOptions]="{exact: true}"
+          class="material-icons-outlined">
+          style
+        </mat-icon>
       </button>
 
       <mat-divider [vertical]="true"></mat-divider>

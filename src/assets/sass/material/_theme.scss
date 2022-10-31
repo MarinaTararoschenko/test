@@ -1,0 +1,107 @@
+@import '~@angular/material/theming';
+@include mat-core();
+
+// light theme
+$theme-light-primary: mat-palette($mat-light-blue, 500, 100, 700);
+$theme-light-accent: mat-palette($mat-light-green, 500, 200, 700);
+$theme-light-warn: mat-palette($mat-deep-orange, 500, 100, 700);
+
+$custom-light-theme: mat-light-theme((
+  color: (
+    primary: $theme-light-primary,
+    accent: $theme-light-accent,
+    warn: $theme-light-warn
+  )
+));
+
+// dark theme
+$theme-dark-primary: mat-palette($mat-cyan, 500, 100, 700);
+$theme-dark-accent: mat-palette($mat-teal, A700, 100, 700);
+$theme-dark-warn: mat-palette($mat-deep-orange, 500, 100, 700);
+
+$custom-dark-theme: mat-dark-theme((
+  color: (
+    primary: $theme-dark-primary,
+    accent: $theme-dark-accent,
+    warn: $theme-dark-warn
+  )
+));
+
+$theme-primary: $theme-light-primary;
+$theme-accent: $theme-light-accent;
+$theme-warn: $theme-light-warn;
+
+
+@include angular-material-theme($custom-light-theme);
+
+// include custom dark theme
+.contrast {
+  $theme-primary: $theme-dark-primary;
+  $theme-accent: $theme-dark-accent;
+  $theme-warn: $theme-dark-warn;
+
+  @include angular-material-theme($custom-dark-theme);
+}
+
+// Helper classes of colors (frome material palette)
+.color-accent-primary {
+  color: mat-color($theme-primary, default);
+}
+
+.color-accent-primary-light {
+  color: mat-color($theme-primary, lighter) !important;
+}
+
+.color-accent-primary-dark {
+  color: mat-color($theme-primary, darker) !important;
+}
+
+.color-accent-secondary,
+.color-active {
+  color: mat-color($theme-accent, default) !important;
+}
+
+.color-accent-secondary-light {
+  color: mat-color($theme-accent, lighter) !important;
+}
+
+.color-accent-secondary-dark {
+  color: mat-color($theme-accent, darker) !important;
+}
+
+.color-warn {
+  color: mat-color($theme-warn, default) !important;
+}
+
+.bg-error {
+  background-color: mat-color($theme-warn, default);
+}
+
+// Helper classes of colors (frome custom variables)
+.color-base {
+  color: var(--colorBase);
+}
+
+.color-primary {
+  color: var(--colorPrimary);
+}
+
+.color-secondary {
+  color: var(--colorSecondary);
+}
+
+.bg-header {
+  background-color: var(--bgHeader);
+}
+
+.bg-primary {
+  background-color: var(--bgPrimary);
+}
+
+.bg-secondary {
+  background-color: var(--bgSecondary);
+}
+
+.bg-third {
+  background-color: var(--bgThird);
+}
