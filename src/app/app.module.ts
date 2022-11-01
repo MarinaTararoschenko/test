@@ -10,10 +10,11 @@ import { HomeComponent } from './home/home.component';
 import { HeaderComponent } from './shared/header/header.component';
 
 import { FeaturesComponent } from './features/features.component';
-import { ArcChartComponent } from './features/arc-chart/arc-chart.component';
 // sections
+import { ArcChartComponent } from './features/arc-chart/arc-chart.component';
 import { DraggingBlockComponent } from './features/dragging-block/dragging-block.component';
 import { CalendarComponent } from './features/calendar/calendar.component';
+import { LoopSliderComponent } from './features/loop-slider/loop-slider.component';
 
 import { LibraryComponent } from './library/library.component';
 
@@ -26,7 +27,8 @@ import { LibraryComponent } from './library/library.component';
         DraggingBlockComponent,
         CalendarComponent,
         LibraryComponent,
-        ArcChartComponent
+        ArcChartComponent,
+        LoopSliderComponent
     ],
     imports: [
         BrowserModule,
