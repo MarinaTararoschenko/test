@@ -4,16 +4,16 @@
   font-weight: 400;
   src: local('Material Icons'),
       local('MaterialIcons-Regular'),
-      url('material/MaterialIcons-Regular.woff2') format('woff2'),
-      url('material/MaterialIcons-Regular.woff') format('woff');
+      url('./material/MaterialIcons-Regular.woff2') format('woff2'),
+      url('./material/MaterialIcons-Regular.woff') format('woff');
 }
 
 @font-face {
   font-family: 'Material Icons Outlined';
   src: local('Material Icons Outlined'),
       local('Material Icons Outlined'),
-      url('material/MaterialIconsOutlined-Regular.woff2') format('woff2'),
-      url('material/MaterialIconsOutlined-Regular.woff') format('woff');
+      url('./material/MaterialIconsOutlined-Regular.woff2') format('woff2'),
+      url('./material/MaterialIconsOutlined-Regular.woff') format('woff');
   font-weight: normal;
   font-style: normal;
   font-display: swap;
