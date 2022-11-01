@@ -1,12 +1,12 @@
-@import '~@angular/material/theming';
-@include mat-core();
+@use '@angular/material' as mat;
+@include mat.core();
 
 // light theme
-$theme-light-primary: mat-palette($mat-light-blue, 500, 100, 700);
-$theme-light-accent: mat-palette($mat-light-green, 500, 200, 700);
-$theme-light-warn: mat-palette($mat-deep-orange, 500, 100, 700);
+$theme-light-primary: mat.define-palette(mat.$light-blue-palette, 500, 100, 700);
+$theme-light-accent: mat.define-palette(mat.$light-green-palette, 500, 200, 700);
+$theme-light-warn: mat.define-palette(mat.$deep-orange-palette, 500, 100, 700);
 
-$custom-light-theme: mat-light-theme((
+$custom-light-theme: mat.define-light-theme((
   color: (
     primary: $theme-light-primary,
     accent: $theme-light-accent,
@@ -15,11 +15,11 @@ $custom-light-theme: mat-light-theme((
 ));
 
 // dark theme
-$theme-dark-primary: mat-palette($mat-cyan, 500, 100, 700);
-$theme-dark-accent: mat-palette($mat-teal, A700, 100, 700);
-$theme-dark-warn: mat-palette($mat-deep-orange, 500, 100, 700);
+$theme-dark-primary: mat.define-palette(mat.$cyan-palette, 500, 100, 700);
+$theme-dark-accent: mat.define-palette(mat.$teal-palette, A700, 100, 700);
+$theme-dark-warn: mat.define-palette(mat.$deep-orange-palette, 500, 100, 700);
 
-$custom-dark-theme: mat-dark-theme((
+$custom-dark-theme: mat.define-dark-theme((
   color: (
     primary: $theme-dark-primary,
     accent: $theme-dark-accent,
@@ -27,21 +27,77 @@ $custom-dark-theme: mat-dark-theme((
   )
 ));
 
-$theme-primary: $theme-light-primary;
-$theme-accent: $theme-light-accent;
-$theme-warn: $theme-light-warn;
+.color-accent-primary {
+  color: mat.get-color-from-palette($theme-light-primary, default);
+}
 
-@import "./helpers";
-@include angular-material-theme($custom-light-theme);
+.color-accent-primary-light {
+  color: mat.get-color-from-palette($theme-light-primary, lighter) !important;
+}
+
+.color-accent-primary-dark {
+  color: mat.get-color-from-palette($theme-light-primary, darker) !important;
+}
+
+.color-accent-secondary,
+.color-active {
+  color: mat.get-color-from-palette($theme-light-accent, default) !important;
+}
+
+.color-accent-secondary-light {
+  color: mat.get-color-from-palette($theme-light-accent, lighter) !important;
+}
+
+.color-accent-secondary-dark {
+  color: mat.get-color-from-palette($theme-light-accent, darker) !important;
+}
+
+.color-warn {
+  color: mat.get-color-from-palette($theme-light-warn, default) !important;
+}
+
+.bg-error {
+  background-color: mat.get-color-from-palette($theme-light-warn, default);
+}
+
+@include mat.all-component-themes($custom-light-theme);
 
 // include custom dark theme
 .contrast {
-  $theme-primary: $theme-dark-primary;
-  $theme-accent: $theme-dark-accent;
-  $theme-warn: $theme-dark-warn;
+  .color-accent-primary {
+    color: mat.get-color-from-palette($theme-dark-primary, default);
+  }
 
-  @import "./helpers";
-  @include angular-material-theme($custom-dark-theme);
+  .color-accent-primary-light {
+    color: mat.get-color-from-palette($theme-dark-primary, lighter) !important;
+  }
+
+  .color-accent-primary-dark {
+    color: mat.get-color-from-palette($theme-dark-primary, darker) !important;
+  }
+
+  .color-accent-secondary,
+  .color-active {
+    color: mat.get-color-from-palette($theme-dark-accent, default) !important;
+  }
+
+  .color-accent-secondary-light {
+    color: mat.get-color-from-palette($theme-dark-accent, lighter) !important;
+  }
+
+  .color-accent-secondary-dark {
+    color: mat.get-color-from-palette($theme-dark-accent, darker) !important;
+  }
+
+  .color-warn {
+    color: mat.get-color-from-palette($theme-dark-warn, default) !important;
+  }
+
+  .bg-error {
+    background-color: mat.get-color-from-palette($theme-dark-warn, default);
+  }
+
+  @include mat.all-component-colors($custom-dark-theme);
 }
 
 // Helper classes of colors (frome custom variables)
