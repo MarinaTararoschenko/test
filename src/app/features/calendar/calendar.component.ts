@@ -1,4 +1,4 @@
-import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import * as moment from 'moment';
 
 interface ICalendar {
@@ -18,7 +18,6 @@ interface ICalendar {
     styleUrls: ['./calendar.component.scss']
 })
 export class CalendarComponent implements OnInit {
-    @ViewChild('calendar') public calendar!: ElementRef;
 
     public calendarOprions: ICalendar;
 
@@ -49,11 +48,11 @@ export class CalendarComponent implements OnInit {
 
         // set calendar options
         this.calendarOprions.weekDays = moment.weekdays();
-        this.calendarOprions.currentPeriodName = moment(new Date()).format('MMMM') + ' ' +
-                                                moment(new Date()).format('YYYY');
+        this.calendarOprions.currentPeriodName = moment(new Date(), 'YYYY-MM-DD').format('MMMM') + ' ' +
+            moment(new Date(), 'YYYY-MM-DD').format('YYYY');
         this.calendarOprions.currentPeriod = this._weekDays(
-            moment(new Date()).format('MMMM'),
-            Number(moment(new Date()).format('YYYY'))
+            moment(new Date(), 'YYYY-MM-DD').format('MMMM'),
+            Number(moment(new Date(), 'YYYY-MM-DD').format('YYYY'))
         );
 
         this._previosMonth(new Date());
@@ -61,9 +60,9 @@ export class CalendarComponent implements OnInit {
     }
 
     public isPreviosMonth(day: string): boolean {
-        for (let i = 0; i < this.calendarOprions.prevMonthDays.length; i++) {
-            const prevMonth = this.getMonth(moment(day).format('YYYY MMMM D'));
-            const currentMonth = this.getMonth(this.calendarOprions.prevMonthDays[i]);
+        for (let prevDays of this.calendarOprions.prevMonthDays) {
+            const prevMonth = this.getMonth(moment(day).format('YYYY-MM-DD'));
+            const currentMonth = this.getMonth(prevDays);
 
             if (currentMonth.indexOf(prevMonth) < 0) {
                 return false;
@@ -75,9 +74,9 @@ export class CalendarComponent implements OnInit {
     }
 
     public isNextMonth(day: string): boolean {
-        for (let i = 0; i < this.calendarOprions.nextMonthDays.length; i++) {
-            const prevMonth = this.getMonth(moment(day).format('YYYY MMMM D'));
-            const currentMonth = this.getMonth(this.calendarOprions.nextMonthDays[i]);
+        for (let nextDays of this.calendarOprions.nextMonthDays) {
+            const prevMonth = this.getMonth(moment(day).format('YYYY-MM-DD'));
+            const currentMonth = this.getMonth(nextDays);
 
             if (currentMonth.indexOf(prevMonth) < 0) {
                 return false;
@@ -117,11 +116,12 @@ export class CalendarComponent implements OnInit {
 
     private _previosMonth(date: Date): void {
         const prevMonthDates = [];
-        const numberOfDaysInLastMonth = moment(date).subtract(1, 'months').daysInMonth();
-        const startOfLastMonth = moment(date).subtract(1, 'months').startOf('month');
+
+        const numberOfDaysInLastMonth = moment(date, 'YYYY-MM-DD').subtract(1, 'months').daysInMonth();
+        const startOfLastMonth = moment(date, 'YYYY-MM-DD').subtract(1, 'months').startOf('month');
 
         for (let i = 0; i < numberOfDaysInLastMonth; i++) {
-            prevMonthDates.push(startOfLastMonth.format('YYYY MMMM D'));
+            prevMonthDates.push(startOfLastMonth.format('YYYY-MM-DD'));
             startOfLastMonth.add(1, 'days');
         }
         this.calendarOprions.prevMonthDays = prevMonthDates;
@@ -129,11 +129,11 @@ export class CalendarComponent implements OnInit {
 
     private _nextMonth(date: Date): void {
         const nextMonthDates = [];
-        const numberOfDaysInNextMonth = moment(date).add(1, 'months').daysInMonth();
-        const startOfNextMonth = moment(date).add(1, 'months').startOf('month');
+        const numberOfDaysInNextMonth = moment(date, 'YYYY-MM-DD').add(1, 'months').daysInMonth();
+        const startOfNextMonth = moment(date, 'YYYY-MM-DD').add(1, 'months').startOf('month');
 
         for (let i = 0; i < numberOfDaysInNextMonth; i++) {
-            nextMonthDates.push(startOfNextMonth.format('YYYY MMMM D'));
+            nextMonthDates.push(startOfNextMonth.format('YYYY-MM-DD'));
             startOfNextMonth.add(1, 'days');
         }
         this.calendarOprions.nextMonthDays = nextMonthDates;

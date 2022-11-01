@@ -4,8 +4,6 @@
       <mat-icon>keyboard_arrow_down</mat-icon>
   </button>
 
-  <!-- {{ calendarOprions.currentPeriod | json}} -->
-
   <mat-menu #menuDate="matMenu">
     <button mat-menu-item
             *ngFor="let period of calendarOprions.periods"
@@ -14,7 +12,7 @@
     </button>
   </mat-menu>
 
-  <div class="customCalendar" #calendar>
+  <div class="customCalendar">
     <div class="customCalendar__week">
       <div class="customCalendar__week-name" *ngFor="let weekday of calendarOprions.weekDays">
         {{weekday}} <br>
