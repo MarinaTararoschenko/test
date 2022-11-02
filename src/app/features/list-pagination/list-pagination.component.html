@@ -1,0 +1,26 @@
+<div class="blockPagination">
+
+  <div class="blockPagination__header">
+
+    <div class="blockPagination__label bg-third">{{currentMin + 1}}-{{currentMax}} from {{maxArr}}</div>
+
+    <div class="blockPagination__nav">
+      <button mat-icon-button [disabled]="prevEnabled" (click)="prevItems()">
+        <mat-icon>chevron_left</mat-icon>
+      </button>
+      <button mat-icon-button [disabled]="nextEnabled" (click)="nextItems()">
+        <mat-icon>chevron_right</mat-icon>
+      </button>
+    </div>
+
+  </div>
+
+  <ul class="blockPagination__list">
+    <li
+      class="bg-third body-2"
+      *ngFor="let item of items(quantity).fill(1).slice(currentMin, currentMax); let i = index">
+      Item {{i + currentMin + 1}}
+    </li>
+  </ul>
+
+</div>

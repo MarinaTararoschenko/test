@@ -16,6 +16,7 @@ import { DraggingBlockComponent } from './features/dragging-block/dragging-block
 import { CalendarComponent } from './features/calendar/calendar.component';
 import { LoopSliderComponent } from './features/loop-slider/loop-slider.component';
 import { CustomVerticalSliderComponent } from './features/custom-vertical-slider/custom-vertical-slider.component';
+import { ListPaginationComponent } from './features/list-pagination/list-pagination.component';
 
 import { LibraryComponent } from './library/library.component';
 
@@ -40,7 +41,8 @@ registerLocaleData(localeCL);
         ArcChartComponent,
         LoopSliderComponent,
         CustomVerticalSliderComponent,
-        CurrencyFormatPipe
+        CurrencyFormatPipe,
+        ListPaginationComponent
     ],
     imports: [
         BrowserModule,
