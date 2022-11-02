@@ -1,0 +1,65 @@
+<div class="table bg-secondary">
+  <div class="table__header">
+    <ng-container *ngIf="!isTablet">
+      <div class="table__th color-accent-secondary" *ngFor="let cell of dataTable.header">
+        <b>{{cell}}</b>
+      </div>
+    </ng-container>
+
+    <ng-container *ngIf="isTablet">
+      <div class="table__th color-accent-secondary"><b>Title</b></div>
+      <div class="table__th">
+        <button mat-button class="color-accent-secondary" [matMenuTriggerFor]="menuPeriod">
+          <span>{{currentColumn}}</span>
+          <mat-icon>keyboard_arrow_down</mat-icon>
+        </button>
+
+        <mat-menu #menuPeriod="matMenu">
+          <ng-container *ngFor="let item of dataTable.header; let i = index">
+            <button mat-menu-item (click)="selectedColumn(item, i)" *ngIf="i !== 0">{{item}}</button>
+          </ng-container>
+        </mat-menu>
+      </div>
+    </ng-container>
+  </div>
+
+  <div class="table__body">
+    <ng-container *ngIf="!isTablet">
+      <div class="table__tr" *ngFor="let row of dataTable.body">
+        <div class="table__td"><b>{{row.name}}</b></div>
+        <div class="table__td">${{row.price | currencyFormat}}</div>
+        <div class="table__td">{{row.category}}</div>
+        <div class="table__td">{{row.type}}</div>
+        <div class="table__td">
+          <ng-container *ngIf="!!row.sale; else sale">{{row.sale}}%</ng-container>
+          <ng-template #sale>-</ng-template>
+        </div>
+        <div class="table__td">
+          <ng-container *ngIf="!!row.sale; else saleValue">
+            ${{(row.price * row.sale / 100) | currencyFormat}}
+          </ng-container>
+          <ng-template #saleValue>-</ng-template>
+        </div>
+      </div>
+    </ng-container>
+
+    <ng-container *ngIf="isTablet">
+      <div class="table__tr" *ngFor="let row of dataTable.body">
+        <div class="table__td ">{{row.name}}</div>
+        <div class="table__td" *ngIf="currentData === 1">${{row.price | currencyFormat}}</div>
+        <div class="table__td" *ngIf="currentData === 2">{{row.category}}</div>
+        <div class="table__td" *ngIf="currentData === 3">{{row.type}}</div>
+        <div class="table__td" *ngIf="currentData === 4">
+          <ng-container *ngIf="!!row.sale; else saleTablet">{{row.sale}}%</ng-container>
+          <ng-template #saleTablet>-</ng-template>
+        </div>
+        <div class="table__td" *ngIf="currentData === 5">
+          <ng-container *ngIf="!!row.sale; else saleValueTablet">
+            ${{(row.price * row.sale / 100) | currencyFormat}}
+          </ng-container>
+          <ng-template #saleValueTablet>-</ng-template>
+        </div>
+      </div>
+    </ng-container>
+  </div>
+</div>

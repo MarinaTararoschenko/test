@@ -17,6 +17,7 @@ import { CalendarComponent } from './features/calendar/calendar.component';
 import { LoopSliderComponent } from './features/loop-slider/loop-slider.component';
 import { CustomVerticalSliderComponent } from './features/custom-vertical-slider/custom-vertical-slider.component';
 import { ListPaginationComponent } from './features/list-pagination/list-pagination.component';
+import { TableAdaptiveComponent } from './features/table-adaptive/table-adaptive.component';
 
 import { LibraryComponent } from './library/library.component';
 
@@ -42,7 +43,8 @@ registerLocaleData(localeCL);
         LoopSliderComponent,
         CustomVerticalSliderComponent,
         CurrencyFormatPipe,
-        ListPaginationComponent
+        ListPaginationComponent,
+        TableAdaptiveComponent
     ],
     imports: [
         BrowserModule,
