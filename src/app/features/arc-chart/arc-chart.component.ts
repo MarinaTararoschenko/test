@@ -1,5 +1,5 @@
-import { Component, OnInit, Inject, PLATFORM_ID, ViewChild, ElementRef } from '@angular/core';
-import { isPlatformBrowser } from '@angular/common';
+import { Component, OnInit, Inject, PLATFORM_ID, ViewChild, ElementRef, HostListener } from '@angular/core';
+import { DOCUMENT, isPlatformBrowser } from '@angular/common';
 
 interface ICanvas {
     canvas: any;
@@ -28,21 +28,35 @@ export class ArcChartComponent implements OnInit {
     public maxValue: number = 100;
     public curPerc: number = 0;
 
+    @HostListener('window: scroll')
+    onScroll() {
+        this.playAnimateChart();
+    }
+
     constructor(
         @Inject(PLATFORM_ID) private platformId: any,
+        @Inject(DOCUMENT) private _document: Document,
     ) {
     }
 
     public ngOnInit(): void {
         if (isPlatformBrowser(this.platformId)) {
             this.initCanvas();
-            this.playAnimateChart();
         }
     }
 
+    public _isInViewport(elem: any): boolean {
+        const viewportWindow = window.innerHeight || this._document.documentElement.clientHeight;
+        const elemRect = elem.getBoundingClientRect();
+        return (elemRect.top >= 56 && elemRect.bottom <= viewportWindow);
+    }
+
     public playAnimateChart(): void {
-        this._animate();
-        this.chartsIsAnimated = true;
+
+        if (this._isInViewport(this.circleProgress.nativeElement) && !this.chartsIsAnimated) {
+            this._animate();
+            this.chartsIsAnimated = true;
+        }
     }
 
     public initCanvas(): void {
