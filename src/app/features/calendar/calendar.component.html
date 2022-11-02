@@ -12,23 +12,25 @@
     </button>
   </mat-menu>
 
-  <div class="customCalendar">
-    <div class="customCalendar__week">
-      <div class="customCalendar__week-name" *ngFor="let weekday of calendarOprions.weekDays">
-        {{weekday}} <br>
+  <div class="overflow-x">
+    <div class="customCalendar">
+      <div class="customCalendar__week">
+        <div class="customCalendar__week-name" *ngFor="let weekday of calendarOprions.weekDays">
+          {{weekday}} <br>
+        </div>
       </div>
-    </div>
 
-    <div class="customCalendar__weekdays" *ngFor="let week of calendarOprions.currentPeriod">
-      <div
-        class="customCalendar__day"
-        [class.prev]="isPreviosMonth(day) || isNextMonth(day)"
-        *ngFor="let day of week.days">
-        <span class="customCalendar__day_month">{{getYear(day)}}</span>
-        <span class="customCalendar__day_month">{{getMonth(day)}}</span>
-        <span>{{getDay(day)}}</span>
+      <div class="customCalendar__weekdays" *ngFor="let week of calendarOprions.currentPeriod">
+        <div
+          class="customCalendar__day"
+          [class.prev]="isPreviosMonth(day) || isNextMonth(day)"
+          *ngFor="let day of week.days">
+          <span class="customCalendar__day_month">{{getYear(day)}}</span>
+          <span class="customCalendar__day_month">{{getMonth(day)}}</span>
+          <span>{{getDay(day)}}</span>
+        </div>
       </div>
-    </div>
 
+    </div>
   </div>
 </div>
