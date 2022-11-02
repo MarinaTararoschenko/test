@@ -28,7 +28,7 @@ $custom-dark-theme: mat.define-dark-theme((
 ));
 
 .color-accent-primary {
-  color: mat.get-color-from-palette($theme-light-primary, default);
+  color: mat.get-color-from-palette($theme-light-primary, default) !important;
 }
 
 .color-accent-primary-light {
@@ -56,8 +56,32 @@ $custom-dark-theme: mat.define-dark-theme((
   color: mat.get-color-from-palette($theme-light-warn, default) !important;
 }
 
+.bg-accent-primary {
+  background-color: mat.get-color-from-palette($theme-light-primary, default) !important;
+}
+
+.bg-accent-primary-light {
+  background-color: mat.get-color-from-palette($theme-light-primary, lighter) !important;
+}
+
+.bg-accent-primary-dark {
+  background-color: mat.get-color-from-palette($theme-light-primary, darker) !important;
+}
+
+.bg-accent-secondary {
+  background-color: mat.get-color-from-palette($theme-light-accent, default) !important;
+}
+
+.bg-accent-secondary-light {
+  background-color: mat.get-color-from-palette($theme-light-accent, lighter) !important;
+}
+
+.bg-accent-secondary-dark {
+  background-color: mat.get-color-from-palette($theme-light-accent, darker) !important;
+}
+
 .bg-error {
-  background-color: mat.get-color-from-palette($theme-light-warn, default);
+  background-color: mat.get-color-from-palette($theme-light-warn, default) !important;
 }
 
 @include mat.all-component-themes($custom-light-theme);
@@ -65,7 +89,7 @@ $custom-dark-theme: mat.define-dark-theme((
 // include custom dark theme
 .contrast {
   .color-accent-primary {
-    color: mat.get-color-from-palette($theme-dark-primary, default);
+    color: mat.get-color-from-palette($theme-dark-primary, default) !important;
   }
 
   .color-accent-primary-light {
@@ -93,8 +117,32 @@ $custom-dark-theme: mat.define-dark-theme((
     color: mat.get-color-from-palette($theme-dark-warn, default) !important;
   }
 
+  .bg-accent-primary {
+    background-color: mat.get-color-from-palette($theme-dark-primary, default !important);
+  }
+
+  .bg-accent-primary-light {
+    background-color: mat.get-color-from-palette($theme-dark-primary, lighter) !important;
+  }
+
+  .bg-accent-primary-dark {
+    background-color: mat.get-color-from-palette($theme-dark-primary, darker) !important;
+  }
+
+  .bg-accent-secondary {
+    background-color: mat.get-color-from-palette($theme-dark-accent, default) !important;
+  }
+
+  .bg-accent-secondary-light {
+    background-color: mat.get-color-from-palette($theme-dark-accent, lighter) !important;
+  }
+
+  .bg-accent-secondary-dark {
+    background-color: mat.get-color-from-palette($theme-dark-accent, darker) !important;
+  }
+
   .bg-error {
-    background-color: mat.get-color-from-palette($theme-dark-warn, default);
+    background-color: mat.get-color-from-palette($theme-dark-warn, default) !important;
   }
 
   @include mat.all-component-colors($custom-dark-theme);
