@@ -1,0 +1,50 @@
+<div class="calculator">
+  <div class="calculator--head">
+    <input type="text" value="{{passwordEnter}}">
+
+    <div class="mask">
+      <mat-icon [style.color]="item.isHide ? 'transparent' : '#fff'"
+                *ngFor="let item of maskList">
+                {{item.text}}
+      </mat-icon>
+    </div>
+
+    <div class="secure">
+      <span *ngFor="let item of password; let i = index"
+            [class.hide]="isPassowrEnd"
+            [style.color]="maskList[i].text === 'lens' && !maskList[i].isHide ? 'transparent' : '#fff'">
+            {{item}}
+      </span>
+    </div>
+  </div>
+
+  <div class="calculator--body">
+
+    <button class="calculator__btn" (click)="selectedBtn('7')">7</button>
+
+    <button class="calculator__btn" (click)="selectedBtn('8')">8</button>
+
+    <button class="calculator__btn" (click)="selectedBtn('9')">9</button>
+
+    <button class="calculator__btn" (click)="selectedBtn('4')">4</button>
+
+    <button class="calculator__btn" (click)="selectedBtn('5')">5</button>
+
+    <button class="calculator__btn" (click)="selectedBtn('6')">6</button>
+
+    <button class="calculator__btn" (click)="selectedBtn('1')">1</button>
+
+    <button class="calculator__btn" (click)="selectedBtn('2')">2</button>
+
+    <button class="calculator__btn" (click)="selectedBtn('3')">3</button>
+
+    <button class="calculator__btn" (click)="selectedBtn('B')" [disabled]="!isDeleteBtnActive">
+      <mat-icon>backspace</mat-icon>
+    </button>
+
+    <button class="calculator__btn" (click)="selectedBtn('0')">0</button>
+
+    <button class="calculator__btn"  (click)="selectedBtn('00')" [disabled]="!isZeroBtnDisabled">00</button>
+
+  </div>
+</div>
