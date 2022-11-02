@@ -19,6 +19,15 @@ import { CustomVerticalSliderComponent } from './features/custom-vertical-slider
 
 import { LibraryComponent } from './library/library.component';
 
+// services
+import { LocaleService } from './shared/services/locale.service';
+import { CurrencyFormatPipe } from './shared/pipe/currency.pipe';
+
+// locales
+import { registerLocaleData } from '@angular/common';
+import localeCL from '@angular/common/locales/es-CL';
+registerLocaleData(localeCL);
+
 @NgModule({
     declarations: [
         AppComponent,
@@ -30,7 +39,8 @@ import { LibraryComponent } from './library/library.component';
         LibraryComponent,
         ArcChartComponent,
         LoopSliderComponent,
-        CustomVerticalSliderComponent
+        CustomVerticalSliderComponent,
+        CurrencyFormatPipe
     ],
     imports: [
         BrowserModule,
@@ -38,7 +48,10 @@ import { LibraryComponent } from './library/library.component';
         CustomMaterialModule,
         BrowserAnimationsModule
     ],
-    providers: [],
+    providers: [
+        LocaleService,
+        CurrencyFormatPipe
+    ],
     bootstrap: [AppComponent]
 })
 export class AppModule { }
