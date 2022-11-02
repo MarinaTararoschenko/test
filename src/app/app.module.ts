@@ -15,6 +15,7 @@ import { ArcChartComponent } from './features/arc-chart/arc-chart.component';
 import { DraggingBlockComponent } from './features/dragging-block/dragging-block.component';
 import { CalendarComponent } from './features/calendar/calendar.component';
 import { LoopSliderComponent } from './features/loop-slider/loop-slider.component';
+import { CustomVerticalSliderComponent } from './features/custom-vertical-slider/custom-vertical-slider.component';
 
 import { LibraryComponent } from './library/library.component';
 
@@ -28,7 +29,8 @@ import { LibraryComponent } from './library/library.component';
         CalendarComponent,
         LibraryComponent,
         ArcChartComponent,
-        LoopSliderComponent
+        LoopSliderComponent,
+        CustomVerticalSliderComponent
     ],
     imports: [
         BrowserModule,
