@@ -1,0 +1,40 @@
+.blockIssue {
+  height: 764px;
+  min-height: calc(100vh - 80px);
+  overflow: hidden;
+
+  &__container {
+    width: 800px;
+    max-width: 100%;
+    margin: 0 auto;
+  }
+
+  &__inner {
+    display: flex;
+    width: 920px;
+    height: 100%;
+    transform: rotate(20deg);
+  }
+
+  &__col {
+    position: relative;
+    width: 286px;
+
+    & + .blockIssue__col {
+      margin-left: 30px;
+    }
+
+    &:nth-child(2) {
+      transform: translateY(-158px);
+    }
+
+    &:nth-child(3) {
+      transform: translateY(-122px);
+    }
+
+    picture {
+      position: absolute;
+      top: 0;
+    }
+  }
+}

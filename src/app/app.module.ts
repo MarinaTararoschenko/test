@@ -19,6 +19,7 @@ import { CustomVerticalSliderComponent } from './features/custom-vertical-slider
 import { ListPaginationComponent } from './features/list-pagination/list-pagination.component';
 import { TableAdaptiveComponent } from './features/table-adaptive/table-adaptive.component';
 import { CalculatorComponent } from './features/calculator/calculator.component';
+import { BlockIssueComponent } from './features/block-issue/block-issue.component';
 
 import { LibraryComponent } from './library/library.component';
 
@@ -46,7 +47,8 @@ registerLocaleData(localeCL);
         CurrencyFormatPipe,
         ListPaginationComponent,
         TableAdaptiveComponent,
-        CalculatorComponent
+        CalculatorComponent,
+        BlockIssueComponent
     ],
     imports: [
         BrowserModule,
