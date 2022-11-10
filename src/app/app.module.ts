@@ -27,6 +27,9 @@ import { LibraryComponent } from './library/library.component';
 import { LocaleService } from './shared/services/locale.service';
 import { CurrencyFormatPipe } from './shared/pipe/currency.pipe';
 
+// dialogs
+import { DialogLoadingComponent } from './shared/dialogs/dialog-loading/dialog-loading.component';
+
 // locales
 import { registerLocaleData } from '@angular/common';
 import localeCL from '@angular/common/locales/es-CL';
@@ -48,7 +51,8 @@ registerLocaleData(localeCL);
         ListPaginationComponent,
         TableAdaptiveComponent,
         CalculatorComponent,
-        BlockIssueComponent
+        BlockIssueComponent,
+        DialogLoadingComponent
     ],
     imports: [
         BrowserModule,

@@ -1,0 +1,36 @@
+<div class="bg-secondary">
+  <div class="dialog__header">
+    <h1 class="dialog__header-title center bg-secondary"><b>Cupones</b></h1>
+    <button mat-icon-button tabindex="-1" mat-dialog-close>
+      <mat-icon>close</mat-icon>
+    </button>
+  </div>
+
+  <div class="dialog__body">
+
+    <div class="coupon" *ngFor="let coupon of couponsData">
+      <div class="coupon__border"></div>
+
+      <div class="coupon__title"><b>{{coupon.title}}</b></div>
+      <div class="coupon__subtitle">
+        <b>{{coupon.subtitle}}</b>
+      </div>
+      <div class="coupon__desc" [innerHtml]="coupon.desc"></div>
+
+      <div class="coupon__footer">
+        <button
+          mat-flat-button
+          color="accent"
+          class="upper"
+          [cdkCopyToClipboard]="coupon.code"
+          tabindex="-1">
+          Copiar código
+        </button>
+        <div>
+          <div class="coupon__code-title"><b>Código</b></div>
+          <div class="coupon__code upper"><b>{{coupon.code}}</b></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

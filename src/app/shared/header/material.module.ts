@@ -7,6 +7,8 @@ import { MatRippleModule } from '@angular/material/core';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatDividerModule } from '@angular/material/divider';
+import { ClipboardModule } from '@angular/cdk/clipboard';
+import { MatDialogModule } from '@angular/material/dialog';
 
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
@@ -19,7 +21,9 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
         FormsModule,
         MatInputModule,
         MatFormFieldModule,
-        MatDividerModule
+        MatDividerModule,
+        ClipboardModule,
+        MatDialogModule
     ],
     exports: [
         ReactiveFormsModule,
@@ -30,7 +34,9 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
         FormsModule,
         MatInputModule,
         MatFormFieldModule,
-        MatDividerModule
+        MatDividerModule,
+        ClipboardModule,
+        MatDialogModule
     ]
 })
 export class CustomMaterialModule {}
