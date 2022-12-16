@@ -1,0 +1,97 @@
+.dynamicList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  width: 300px;
+  max-width: none;
+  border-radius: 8px;
+  border: 1px solid var(--colorBorder);
+  overflow: hidden;
+
+  input {
+    position: relative;
+    z-index: 1;
+    flex-grow: 1;
+    font-size: 1.6rem;
+    line-height: 48px;
+    color: var(--colorPrimary);
+    padding: 0 16px;
+    border: none;
+    background-color: var(--bgPrimary);
+
+    &[readonly] {
+      pointer-events: none;
+      z-index: -1;
+    }
+  }
+
+  &__readonly {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    width: calc(100% - 104px);
+    height: 100%;
+    font-size: 1.6rem;
+    padding: 0 16px;
+    background-color: var(--bgPrimary);
+  }
+
+  &__action {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    width: 104px;
+    padding: 0 8px;
+    transition: transform .3s;
+
+    .mat-icon-button + .mat-icon-button {
+      margin-left: 8px;
+    }
+
+    .mat-icon {
+      color: #fff;
+    }
+  }
+
+  li {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: stretch;
+    width: calc(100% + 104px);
+    max-height: 48px;
+    cursor: pointer;
+    transition: .2s;
+
+    & + li .dynamicList__value::before {
+      content: "";
+      position: absolute;
+      top: 0px;
+      left: 16px;
+      right: 16px;
+      height: 1px;
+      background-color: var(--colorBorder);
+    }
+
+    &.swipe {
+      transform: translateX(-104px);
+    }
+
+    &.remove {
+      max-height: 0;
+      transition: max-height 0.3s;
+
+      .dynamicList__value {
+        flex-grow: 0;
+      }
+
+      .dynamicList__action {
+        flex-grow: 1;
+        transform: scaleY(0);
+        transform-origin: top;
+      }
+    }
+  }
+}

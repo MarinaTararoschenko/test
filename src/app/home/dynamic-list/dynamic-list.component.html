@@ -1,0 +1,32 @@
+<mat-form-field appearance="outline" color="primary">
+  <mat-label>New name</mat-label>
+  <input type="text" matInput #inputName>
+</mat-form-field>
+
+<br>
+
+<button mat-raised-button color="accent" (click)="addItem(inputName)" [disabled]="inputName.value.length === 0">
+  {{textButton}}
+</button>
+
+<br>
+<br>
+
+<hr>
+
+<br>
+
+<ul class="dynamicList" *ngIf="data?.length > 0">
+  <li *ngFor="let item of data; let i = index" [class.swipe]="currentSwipe === i">
+    <div matRipple class="dynamicList__readonly" (click)="swipe(i)">{{item.name}}</div>
+    <input #name type="text" [value]="item.name" [readonly]="currentEdit !== i" (keydown.enter)="changeName(i, name)">
+    <div class="dynamicList__action bg-error">
+      <button mat-icon-button (click)="changeItem(i, name)">
+        <mat-icon>edit_outline</mat-icon>
+      </button>
+      <button mat-icon-button (click)="removeItem($event, i)">
+        <mat-icon>remove_circle_outline</mat-icon>
+      </button>
+    </div>
+  </li>
+</ul>
