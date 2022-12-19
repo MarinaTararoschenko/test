@@ -15,13 +15,25 @@
     font-size: 1.6rem;
     line-height: 48px;
     color: var(--colorPrimary);
-    padding: 0 16px;
+    padding: 0 56px 0 16px;
     border: none;
     background-color: var(--bgPrimary);
 
     &[readonly] {
       pointer-events: none;
       z-index: -1;
+
+      & + .mat-icon-button {
+        display: none;
+      }
+    }
+
+    &+.mat-icon-button {
+      position: absolute;
+      top: 50%;
+      right: 112px;
+      transform: translateY(-50%);
+      z-index: 1;
     }
   }
 

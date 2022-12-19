@@ -1,32 +1,60 @@
-<mat-form-field appearance="outline" color="primary">
-  <mat-label>New name</mat-label>
-  <input type="text" matInput #inputName>
-</mat-form-field>
+<div [formGroup]="form">
 
-<br>
+  <mat-form-field appearance="outline" color="primary">
+    <mat-label>New name</mat-label>
+    <input type="text" matInput formControlName="newName">
+  </mat-form-field>
 
-<button mat-raised-button color="accent" (click)="addItem(inputName)" [disabled]="inputName.value.length === 0">
-  {{textButton}}
-</button>
+  <br>
 
-<br>
-<br>
+  <button
+    mat-raised-button
+    color="accent"
+    (click)="addItem()"
+    [disabled]="newName.invalid">
+    {{textButton}}
+  </button>
 
-<hr>
+  <br>
+  <br>
 
-<br>
+  <hr>
 
-<ul class="dynamicList" *ngIf="data?.length > 0">
-  <li *ngFor="let item of data; let i = index" [class.swipe]="currentSwipe === i">
-    <div matRipple class="dynamicList__readonly" (click)="swipe(i)">{{item.name}}</div>
-    <input #name type="text" [value]="item.name" [readonly]="currentEdit !== i" (keydown.enter)="changeName(i, name)">
-    <div class="dynamicList__action bg-error">
-      <button mat-icon-button (click)="changeItem(i, name)">
-        <mat-icon>edit_outline</mat-icon>
+  <br>
+
+  {{data | json}}
+
+  <br>
+  <br>
+
+  <ul class="dynamicList" *ngIf="data?.length > 0">
+    <li *ngFor="let item of data; let i = index" [class.swipe]="currentSwipe === i" formGroupName="names">
+
+      <div matRipple class="dynamicList__readonly" (click)="swipe(i)">{{item.name}}</div>
+
+      <input
+        #name
+        type="text"
+        [readonly]="currentEdit !== i"
+        [formControlName]="i">
+
+      <button
+        mat-icon-button
+        color="primary"
+        [disabled]="names.controls[i].invalid && names.controls[i].touched"
+        (click)="save(i, name)">
+        <mat-icon>check</mat-icon>
       </button>
-      <button mat-icon-button (click)="removeItem($event, i)">
-        <mat-icon>remove_circle_outline</mat-icon>
-      </button>
-    </div>
-  </li>
-</ul>
+
+      <div class="dynamicList__action bg-error">
+        <button mat-icon-button (click)="toEdit(i, name)">
+          <mat-icon>edit_outline</mat-icon>
+        </button>
+        <button mat-icon-button (click)="removeItem($event, i)">
+          <mat-icon>remove_circle_outline</mat-icon>
+        </button>
+      </div>
+
+    </li>
+  </ul>
+</div>
