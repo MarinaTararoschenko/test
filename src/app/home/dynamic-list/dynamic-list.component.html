@@ -21,10 +21,6 @@
   <hr>
 
   <br>
-
-  {{data | json}}
-
-  <br>
   <br>
 
   <ul class="dynamicList" *ngIf="data?.length > 0">
@@ -57,4 +53,8 @@
 
     </li>
   </ul>
+
+  <br>
+  <pre>{{data | json}}</pre>
+
 </div>
